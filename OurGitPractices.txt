@@ -1,0 +1,36 @@
+Start
+1. Make sure your local master is up to Date
+	a. git pull origin master
+2. Create the branch for your feature
+	a. git checkout -b branchName
+3. Write your code and commit regularly. DO NOT PUSH CODE YET
+
+Squashing
+4. Once you are ready to commit everything, squash all your commits
+	a. git rebase -i HEAD~[NUMBER OF COMMITS]
+b. In vim, hit i to go into INSERT mode, then change the squash types to squash (other than the first one)
+c. Once you are finished changing squash types, hit CTRL+C, then type :wq to exit vim. It will bring you to another vim page to choose the commit messages. Hit i to go into INSERT mode, then delete all commit messages except for the first one, which you should edit to reflect all the work done. Then hit CTRL+C, then type :wq to exit vim.
+5. Push the code to the remote branch
+	a. git push origin branchName
+
+***BEFORE MERGING WITH MASTER***
+SUBMIT A PULL REQUEST FOR THE CHANGES ON GITHUB. ONCE THE CHANGES HAVE BEEN REVIEWED, YOU MAY CONTINUE
+********************************
+
+6. Make sure to update your local master
+	a. git checkout master
+	b. git pull origin master
+7. Switch back to your branch
+	a. git checkout branchName
+8. Rebase it with master to have the most current version. You may have to deal with any merge errors at this stage. This can be done in atom if necessary, it has a good interface for it. I will update with any other applications with good merge interfaces.
+	a. git rebase master
+9. Push to your branch
+	a. git push origin branchName --force
+
+Merge with master
+10. Switch to master branch
+	a. git checkout master
+11. Merge branches
+	a. git merge branchName
+12. Push to remote master
+	a. git push origin master
